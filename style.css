@@ -1,0 +1,278 @@
+/*
+ * ----------------------------------------------------
+ * ESTILOS BASE (RESET)
+ * ----------------------------------------------------
+ */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Fundo cinza claro */
+    color: #333;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+/*
+ * ----------------------------------------------------
+ * CABEÇALHO (HEADER) - Cores e Layout Atualizados
+ * ----------------------------------------------------
+ */
+.cabecalho {
+    /* COR ATUALIZADA para combinar com a logo */
+    background-color: #32c6a0; 
+    color: white;
+    padding: 20px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Container Flexbox para alinhar Logo e Títulos */
+.cabecalho-conteudo {
+    display: flex;
+    align-items: center; /* Alinha verticalmente a logo com os textos */
+    justify-content: center; /* Centraliza todo o conteúdo do cabeçalho */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Espaçamento interno */
+}
+
+/* Estilos para a Logo */
+.logo-container {
+    margin-right: 20px;
+    /* Evita que a logo se comprima em ecrãs pequenos */
+    flex-shrink: 0; 
+}
+
+.logo {
+    height: 80px; /* Altura da logo */
+    width: auto;
+}
+
+/* Estilos para os Títulos (garantindo que ficam à direita da logo) */
+.titulos-container {
+    text-align: left; /* Alinha os títulos à esquerda do seu container */
+}
+
+.cabecalho h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+    text-align: left; /* Sobrescreve o alinhamento central anterior */
+}
+
+.cabecalho h2 {
+    font-size: 1.1em;
+    font-weight: normal;
+    opacity: 0.9;
+    text-align: left; /* Sobrescreve o alinhamento central anterior */
+}
+
+
+/*
+ * ----------------------------------------------------
+ * LAYOUT DE AGENDAS (GRID CONTAINER)
+ * ----------------------------------------------------
+ */
+.container-agendas {
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 0;
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+}
+
+/*
+ * ----------------------------------------------------
+ * CARTÃO INDIVIDUAL DA AGENDA
+ * ----------------------------------------------------
+ */
+.agenda-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex; 
+    flex-direction: column;
+}
+
+.agenda-card:hover {
+    transform: translateY(-5px);
+}
+
+.agenda-card h3 {
+    font-size: 1.2em;
+    /* COR ATUALIZADA: Usando o verde da logo para destacar o nome da agenda */
+    color: #32c6a0; 
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Container para garantir que o iframe preencha o espaço */
+.agenda-iframe-container {
+    flex-grow: 1;
+    min-height: 400px;
+}
+
+/*
+ * ----------------------------------------------------
+ * RESPONSIVIDADE (MEDIA QUERIES)
+ * ----------------------------------------------------
+ */
+
+/* Para ecrãs de largura média (e.g., tablets em modo paisagem, ecrãs pequenos) */
+@media (max-width: 900px) {
+    .container-agendas {
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* Para ecrãs pequenos (e.g., telemóveis) */
+@media (max-width: 550px) {
+    /* Altera o layout do cabeçalho para empilhar logo e títulos */
+    .cabecalho-conteudo {
+        flex-direction: column;
+        text-align: center;
+    }
+    .logo-container {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .titulos-container,
+    .cabecalho h1, 
+    .cabecalho h2 {
+        text-align: center; /* Centraliza tudo novamente no telemóvel */
+    }
+    .cabecalho {
+        padding: 15px 10px;
+    }
+    .cabecalho h1 {
+        font-size: 1.8em;
+    }
+    .cabecalho h2 {
+        font-size: 0.9em;
+    }
+    .agenda-card {
+        padding: 10px;
+    }
+    .logo {
+        height: 60px; /* Reduz o tamanho da logo no telemóvel */
+    }
+}
+
+
+/* * ----------------------------------------------------
+ * ESTILOS DO MENU PRINCIPAL (index.html)
+ * ----------------------------------------------------
+ */
+.menu-principal {
+    width: 95%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.menu-principal h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #32c6a0;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.opcoes-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap; /* Garante que os cartões se movam para a linha seguinte em ecrãs pequenos */
+}
+
+.cartao-opcao {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    text-decoration: none; /* Remove sublinhado do link */
+    color: #333;
+    flex: 1; /* Permite que cada cartão ocupe espaço proporcional */
+    min-width: 300px; /* Garante um tamanho mínimo para visualização */
+    max-width: 45%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.cartao-opcao:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cartao-opcao h3 {
+    text-align: left;
+    color: #32c6a0; /* Cor da logo */
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.cartao-opcao p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.icone-seta {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 1.5em;
+    color: #32c6a0;
+    transition: transform 0.3s ease;
+}
+
+.cartao-opcao:hover .icone-seta {
+    transform: translateX(5px);
+}
+
+/* Responsividade do Menu */
+@media (max-width: 700px) {
+    .opcoes-container {
+        flex-direction: column; /* Empilha as opções em ecrãs pequenos */
+        gap: 15px;
+    }
+    .cartao-opcao {
+        max-width: 100%;
+        min-width: 100%;
+    }
+}
+
+
+/* * ----------------------------------------------------
+ * AJUSTES DE ESTILOS PARA AS PÁGINAS DE CONTEÚDO
+ * ----------------------------------------------------
+ */
+
+/* Certifica-se que o .container-agenda-unica e .container-agendas não têm estilos de menu */
+
+.container-agenda-unica { /* Estilos da página agenda-completa.html */
+    /* ... (Mantenha os estilos que definimos no passo 3) ... */
+    max-width: 1200px;
+    /* ... */
+}
+
+.container-agendas { /* Estilos da página agendas-separadas.html */
+    /* ... (Mantenha os estilos que definimos no passo 1) ... */
+    max-width: 1400px; 
+    /* ... */
+}
